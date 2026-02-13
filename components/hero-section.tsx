@@ -4,18 +4,12 @@ import { useEffect, useState, useRef } from "react"
 import { Button } from "@/components/ui/button"
 import {
   ArrowRight,
-  GitBranch,
-  CheckCircle2,
   Zap,
   TrendingUp,
-  Users,
-  Eye,
+  Brain,
+  ArrowUpRight,
   Globe,
   Clock,
-  Activity,
-  Database,
-  Cpu,
-  HardDrive,
 } from "lucide-react"
 
 export function HeroSection() {
@@ -307,12 +301,7 @@ export function HeroSection() {
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground sm:text-xl lg:text-2xl">
-            The ultimate sales engine for teams of 1 or 1,000. Launch a world-class operation in minutes with a
-            Predictive AI Power-Dialer and Real-Time Whisper Coaching. From lead management to live AI-driven call
-            guidance, we eliminate dead air with smart predictive sequencing that keeps your pipeline moving without
-            the manual grind. Whether you’re closing your first deal or managing a floor of hundreds, our live
-            AI-agent overlay listens, learns, and prompts your next move so you never miss a beat. AEONDial isn’t
-            just a tool; it's a scalable sales ecosystem that grows exactly as fast as you do.
+            The world’s first AI-native telephony stack for teams of 1 to 1,000.
           </p>
 
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -323,6 +312,41 @@ export function HeroSection() {
             <Button size="lg" variant="outline" className="w-full sm:w-auto bg-transparent">
               View documentation
             </Button>
+          </div>
+
+          <div className="mx-auto mt-10 grid max-w-5xl gap-4 text-left sm:grid-cols-2 lg:grid-cols-3">
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-md">
+              <div className="mb-4 flex h-9 w-9 items-center justify-center rounded-lg bg-accent/20 shadow-[0_0_24px_rgba(249,115,22,0.35)]">
+                <Zap className="h-4 w-4 text-accent" />
+              </div>
+              <p className="font-mono text-sm font-semibold uppercase tracking-wider text-accent">Speed</p>
+              <h3 className="mt-2 text-lg font-semibold">Predictive Power-Dialing</h3>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Eliminate dead air with smart sequencing that keeps your pipeline moving without the manual grind.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-md">
+              <div className="mb-4 flex h-9 w-9 items-center justify-center rounded-lg bg-accent/20 shadow-[0_0_24px_rgba(249,115,22,0.35)]">
+                <Brain className="h-4 w-4 text-accent" />
+              </div>
+              <p className="font-mono text-sm font-semibold uppercase tracking-wider text-accent">Intelligence</p>
+              <h3 className="mt-2 text-lg font-semibold">Live Whisper Coaching</h3>
+              <p className="mt-2 text-sm text-muted-foreground">
+                An AI overlay that listens, learns, and prompts your next move so you never miss a beat.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-md sm:col-span-2 lg:col-span-1">
+              <div className="mb-4 flex h-9 w-9 items-center justify-center rounded-lg bg-accent/20 shadow-[0_0_24px_rgba(249,115,22,0.35)]">
+                <ArrowUpRight className="h-4 w-4 text-accent" />
+              </div>
+              <p className="font-mono text-sm font-semibold uppercase tracking-wider text-accent">Scale</p>
+              <h3 className="mt-2 text-lg font-semibold">Infinite Elasticity</h3>
+              <p className="mt-2 text-sm text-muted-foreground">
+                From a solo-closer to a 1,000-seat floor—AEONDial grows exactly as fast as you do.
+              </p>
+            </div>
           </div>
         </div>
 

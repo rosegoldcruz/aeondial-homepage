@@ -78,6 +78,9 @@ export function Footer() {
           <p className="text-center text-sm text-muted-foreground">
             © {new Date().getFullYear()} AEONDial. All rights reserved.
           </p>
+          <p className="mt-2 text-center text-sm text-muted-foreground">
+            Powered by Aeon, the Advanced Efficient Optimized Network.
+          </p>
         </div>
       </div>
     </footer>

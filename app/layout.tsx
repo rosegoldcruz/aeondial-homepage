@@ -10,8 +10,8 @@ const _jetbrainsMono = JetBrains_Mono({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "AEONDial — Talk More. Close Faster.",
   description:
-    "A next-generation development platform designed for teams building with React, Next.js, and modern cloud technologies.",
-  generator: "v0.app",
+    "A next-generation development platform designed for teams building with React, Next.js, and modern cloud technologies. Powered by Aeon, the Advanced Efficient Optimized Network.",
+  generator: "Aeon the Advanced Efficient Optimized Network",
   icons: {
     icon: [
       {

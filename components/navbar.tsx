@@ -9,8 +9,7 @@ import { Menu, X } from "lucide-react"
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
-  const signInUrl = "https://crm.aondial.com/sign-in"
-  const signUpUrl = "https://crm.aondial.com/sign-up"
+  const authUrl = "https://crm.aeondial.com/"
 
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault()
@@ -79,10 +78,10 @@ export function Navbar() {
         </div>
         <div className="hidden items-center gap-4 md:flex">
           <Button variant="ghost" size="sm" asChild>
-            <a href={signInUrl}>Sign in</a>
+            <a href={authUrl}>Sign in</a>
           </Button>
           <Button size="sm" asChild>
-            <a href={signUpUrl}>Get Started</a>
+            <a href={authUrl}>Get Started</a>
           </Button>
         </div>
         <button className="md:hidden" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
@@ -135,10 +134,10 @@ export function Navbar() {
             </Link>
             <div className="flex flex-col gap-2 pt-4">
               <Button variant="ghost" size="sm" asChild>
-                <a href={signInUrl}>Sign in</a>
+                <a href={authUrl}>Sign in</a>
               </Button>
               <Button size="sm" asChild>
-                <a href={signUpUrl}>Get Started</a>
+                <a href={authUrl}>Get Started</a>
               </Button>
             </div>
           </nav>

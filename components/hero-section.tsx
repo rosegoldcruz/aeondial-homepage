@@ -38,7 +38,6 @@ interface GridBurst {
 }
 
 export function HeroSection() {
-  const [codeLineIndex, setCodeLineIndex] = useState(0)
   const [displayedText1, setDisplayedText1] = useState("")
   const [displayedText2, setDisplayedText2] = useState("")
   const [isTypingDone, setIsTypingDone] = useState(false)
@@ -48,41 +47,6 @@ export function HeroSection() {
 
   const text1 = "Talk more."
   const text2 = "Close faster."
-
-  const codeLines = [
-    "import { createClient } from '@AEONDial/sdk'",
-    "import { cache } from 'react'",
-    "",
-    "const client = createClient({",
-    "  project: 'my-app',",
-    "  region: 'auto'",
-    "})",
-    "",
-    "export const getUser = cache(async (id) => {",
-    "  return client.users.get(id)",
-    "})",
-    "",
-    "export async function Dashboard() {",
-    "  const user = await getUser('1')",
-    "  const analytics = await client.analytics()",
-    "  return <DashboardView data={analytics} />",
-    "}",
-    "",
-    "// API Route Handler",
-    "export async function GET(request: Request) {",
-    "  const data = await client.query({",
-    "    metrics: ['pageviews', 'sessions'],",
-    "    period: '7d'",
-    "  })",
-    "  return Response.json(data)",
-    "}",
-    "",
-    "// Edge Middleware",
-    "export function middleware(req: Request) {",
-    "  const geo = req.headers.get('x-geo')",
-    "  return client.route(geo)",
-    "}",
-  ]
 
   useEffect(() => {
     let currentIndex = 0
@@ -103,13 +67,6 @@ export function HeroSection() {
 
     return () => clearInterval(typeInterval)
   }, [])
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCodeLineIndex((prev) => (prev + 1) % codeLines.length)
-    }, 800)
-    return () => clearInterval(interval)
-  }, [codeLines.length])
 
   useEffect(() => {
     if (typeof window === "undefined") return

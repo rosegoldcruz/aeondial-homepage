@@ -92,6 +92,8 @@ export function DeveloperExperience() {
   const sectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
+    const sectionElement = sectionRef.current
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -103,13 +105,13 @@ export function DeveloperExperience() {
       { threshold: 0.3 },
     )
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current)
+    if (sectionElement) {
+      observer.observe(sectionElement)
     }
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current)
+      if (sectionElement) {
+        observer.unobserve(sectionElement)
       }
     }
   }, [hasAnimated])
@@ -117,16 +119,18 @@ export function DeveloperExperience() {
   useEffect(() => {
     if (!hasAnimated) return
 
-    setVisibleChecks([])
-
-    features.forEach((_, index) => {
-      setTimeout(
+    const timeoutIds = features.map((_, index) =>
+      window.setTimeout(
         () => {
           setVisibleChecks((prev) => [...prev, index])
         },
         1000 + index * 150,
-      )
-    })
+      ),
+    )
+
+    return () => {
+      timeoutIds.forEach((timeoutId) => window.clearTimeout(timeoutId))
+    }
   }, [hasAnimated])
 
   return (

@@ -24,8 +24,6 @@ const enterpriseFeatures = [
   },
 ]
 
-const logos = ["Stripe", "Notion", "Linear", "Figma", "Vercel", "Supabase"]
-
 export function EnterpriseSection() {
   return (
     <section id="enterprise" className="py-24 border-t border-border/40 sm:py-24">
@@ -42,19 +40,7 @@ export function EnterpriseSection() {
           </p>
         </div>
 
-        {/* Trusted by logos */}
-        <div className="mx-auto mt-12 max-w-3xl">
-          <p className="text-center text-sm text-muted-foreground mb-6">Trusted by industry leaders</p>
-          <div className="flex flex-wrap items-center justify-center gap-8">
-            {logos.map((logo, index) => (
-              <div key={index} className="font-mono text-lg font-semibold text-muted-foreground/60">
-                {logo}
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="mx-auto mt-16 grid max-w-5xl gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mx-auto mt-12 grid max-w-5xl gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {enterpriseFeatures.map((feature, index) => (
             <div
               key={index}

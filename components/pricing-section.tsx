@@ -53,8 +53,8 @@ export function PricingSection() {
             <DollarSign className="h-4 w-4" />
             <span className="font-mono uppercase tracking-wider">Pricing</span>
           </div>
-          <h2 className="mt-4 font-mono text-3xl font-bold tracking-tight sm:text-4xl">Simple, transparent pricing</h2>
-          <p className="mt-4 text-muted-foreground">Start free and scale as you grow. No hidden fees, no surprises.</p>
+          <h2 className="mt-4 font-mono text-3xl font-bold tracking-tight sm:text-4xl">Choose your weapon</h2>
+          <p className="mt-4 text-muted-foreground">Pick your plan and scale from first calls to full-floor performance.</p>
         </div>
 
         <div className="mx-auto mt-16 grid max-w-5xl gap-8 lg:grid-cols-3">

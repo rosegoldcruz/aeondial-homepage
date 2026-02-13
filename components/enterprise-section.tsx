@@ -1,46 +1,26 @@
-import { Building2, Shield, Users, Headphones, Globe, Lock, BarChart3, Workflow } from "lucide-react"
+import { Building2, Shield, Headphones, Globe } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 const enterpriseFeatures = [
   {
-    icon: Shield,
-    title: "Advanced Security",
-    description: "SOC 2 Type II compliant with enterprise-grade security controls and encryption.",
+    icon: Building2,
+    title: "Carrier-Grade Uptime",
+    description: "99.99% SLA guarantee with multi-region failover so your floor never goes silent.",
   },
   {
-    icon: Users,
-    title: "Unlimited Team Members",
-    description: "Add your entire organization with role-based access control and SSO.",
+    icon: Shield,
+    title: "Total Compliance",
+    description: "Built-in STIR/SHAKEN, TCPA, and HIPAA-ready infrastructure to keep your operation legal.",
   },
   {
     icon: Headphones,
-    title: "Dedicated Support",
-    description: "24/7 priority support with a dedicated customer success manager.",
+    title: "Dedicated Account Stealth",
+    description: "24/7 priority support with a dedicated engineer who knows your specific routing logic.",
   },
   {
     icon: Globe,
     title: "Global Infrastructure",
-    description: "Deploy to 100+ edge locations worldwide with 99.99% uptime SLA.",
-  },
-  {
-    icon: Lock,
-    title: "Compliance Ready",
-    description: "HIPAA, GDPR, and PCI-DSS compliant infrastructure out of the box.",
-  },
-  {
-    icon: BarChart3,
-    title: "Advanced Analytics",
-    description: "Deep insights into performance, usage, and cost optimization.",
-  },
-  {
-    icon: Workflow,
-    title: "Custom Workflows",
-    description: "Build custom CI/CD pipelines tailored to your team's needs.",
-  },
-  {
-    icon: Building2,
-    title: "On-Premise Option",
-    description: "Deploy AEONDial in your own infrastructure for maximum control.",
+    description: "Deploy local presence in 100+ countries with ultra-low latency edge nodes.",
   },
 ]
 
@@ -53,12 +33,12 @@ export function EnterpriseSection() {
         <div className="mx-auto max-w-2xl text-center">
           <div className="flex items-center justify-center gap-2 text-sm text-accent">
             <Building2 className="h-4 w-4" />
-            <span className="font-mono uppercase tracking-wider">Enterprise</span>
+            <span className="font-mono uppercase tracking-wider">Scale</span>
           </div>
-          <h2 className="mt-4 font-mono text-3xl font-bold tracking-tight sm:text-4xl">Built for scale</h2>
+          <h2 className="mt-4 font-mono text-3xl font-bold tracking-tight sm:text-4xl">Built for Massive Scale</h2>
           <p className="mt-4 text-muted-foreground">
-            Trusted by the world's most innovative companies. Get enterprise-grade features, security, and support for
-            your organization.
+            Trusted by high-volume operations to handle millions of minutes with enterprise-grade reliability and
+            ironclad compliance.
           </p>
         </div>
 

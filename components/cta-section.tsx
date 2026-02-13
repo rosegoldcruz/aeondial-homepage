@@ -23,7 +23,7 @@ export function CTASection() {
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="font-mono text-3xl font-bold tracking-tight sm:text-4xl text-balance">
-            Ready to build faster?
+            Ready to start closing?
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
             Join thousands of teams driving more conversations and faster closes with AEONDial. Start your free trial
@@ -31,7 +31,7 @@ export function CTASection() {
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Button size="lg" className="w-full sm:w-auto">
-              Start building free
+              Start free trial
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
             <Button size="lg" variant="outline" className="w-full sm:w-auto bg-transparent">

@@ -12,8 +12,8 @@ const supportLinks = [
 ]
 
 const legalLinks = [
-  { label: "Privacy Policy", href: "#" },
-  { label: "Terms of Service", href: "#" },
+  { label: "Privacy Policy", href: "/privacy" },
+  { label: "Terms of Service", href: "/terms" },
   { label: "Security / Compliance (STIR/SHAKEN)", href: "#" },
 ]
 
@@ -64,9 +64,9 @@ export function Footer() {
               <ul className="mt-4 space-y-2">
                 {legalLinks.map((link) => (
                   <li key={link.label}>
-                    <a href={link.href} className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+                    <Link href={link.href} className="text-sm text-muted-foreground transition-colors hover:text-foreground">
                       {link.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>

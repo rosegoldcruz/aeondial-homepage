@@ -9,6 +9,8 @@ import { Menu, X } from "lucide-react"
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
+  const signInUrl = "https://crm.aondial.com/sign-in"
+  const signUpUrl = "https://crm.aondial.com/sign-up"
 
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault()
@@ -47,11 +49,11 @@ export function Navbar() {
               Experience
             </a>
             <a
-              href="#built-for-react"
-              onClick={(e) => handleSmoothScroll(e, "#built-for-react")}
+              href="#high-velocity"
+              onClick={(e) => handleSmoothScroll(e, "#high-velocity")}
               className="text-sm text-muted-foreground transition-colors hover:text-foreground cursor-pointer"
             >
-              Built for React
+              High Velocity
             </a>
             <a
               href="#pricing"
@@ -67,13 +69,21 @@ export function Navbar() {
             >
               Enterprise
             </a>
+            <Link href="/terms" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+              Terms
+            </Link>
+            <Link href="/privacy" className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+              Privacy
+            </Link>
           </nav>
         </div>
         <div className="hidden items-center gap-4 md:flex">
-          <Button variant="ghost" size="sm">
-            Sign in
+          <Button variant="ghost" size="sm" asChild>
+            <a href={signInUrl}>Sign in</a>
           </Button>
-          <Button size="sm">Get Started</Button>
+          <Button size="sm" asChild>
+            <a href={signUpUrl}>Get Started</a>
+          </Button>
         </div>
         <button className="md:hidden" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
           {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -94,14 +104,14 @@ export function Navbar() {
               onClick={(e) => handleSmoothScroll(e, "#developer-experience")}
               className="text-sm text-muted-foreground cursor-pointer"
             >
-              Developer Experience
+              Experience
             </a>
             <a
-              href="#built-for-react"
-              onClick={(e) => handleSmoothScroll(e, "#built-for-react")}
+              href="#high-velocity"
+              onClick={(e) => handleSmoothScroll(e, "#high-velocity")}
               className="text-sm text-muted-foreground cursor-pointer"
             >
-              Built for React
+              High Velocity
             </a>
             <a
               href="#pricing"
@@ -117,11 +127,19 @@ export function Navbar() {
             >
               Enterprise
             </a>
+            <Link href="/terms" onClick={() => setIsOpen(false)} className="text-sm text-muted-foreground">
+              Terms
+            </Link>
+            <Link href="/privacy" onClick={() => setIsOpen(false)} className="text-sm text-muted-foreground">
+              Privacy
+            </Link>
             <div className="flex flex-col gap-2 pt-4">
-              <Button variant="ghost" size="sm">
-                Sign in
+              <Button variant="ghost" size="sm" asChild>
+                <a href={signInUrl}>Sign in</a>
               </Button>
-              <Button size="sm">Get Started</Button>
+              <Button size="sm" asChild>
+                <a href={signUpUrl}>Get Started</a>
+              </Button>
             </div>
           </nav>
         </div>

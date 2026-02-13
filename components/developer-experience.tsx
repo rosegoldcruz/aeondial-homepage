@@ -1,28 +1,95 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
-import { Check, AppWindow } from "lucide-react"
+import { Check, Activity } from "lucide-react"
+import { AnimatePresence, motion } from "framer-motion"
 
 const features = [
-  "One-Click Provisioning: Claim local or toll-free numbers in 100+ countries and start dialing in under 60 seconds.",
-  "Predictive Sequencing: Our engine anticipates agent availability to eliminate dead air and maximize live connections.",
-  "Real-Time Whisper HUD: An intelligent AI overlay that prompts agents with live rebuttals and closing cues during calls.",
-  "Deep-Link CRM Sync: Zero-latency data logging that automatically updates your lead status and transcripts across your entire stack.",
+  "Auto-prioritize fresh leads by intent and source quality.",
+  "Launch parallel dial streams with instant agent routing.",
+  "Qualify, tag, and sync outcomes in one continuous flow.",
+  "Book next steps the moment momentum appears on a call.",
 ]
 
+const leadNames = ["Jordan Diaz", "Taylor Singh", "Riley Brooks", "Avery Chen", "Morgan Clark", "Casey Moore"]
+const industries = ["Solar", "Legal", "Insurance", "HVAC", "Real Estate", "Dental"]
+const durations = ["03:12", "05:41", "02:58", "04:26", "06:03"]
+const appointments = ["10:30 AM", "1:15 PM", "2:45 PM", "4:00 PM", "9:20 AM"]
+
+type FeedItem = {
+  id: string
+  line: string
+}
+
+function buildFeedLine(index: number) {
+  const name = leadNames[index % leadNames.length]
+  const industry = industries[index % industries.length]
+  const duration = durations[index % durations.length]
+  const appointment = appointments[index % appointments.length]
+
+  const cycle = index % 3
+  if (cycle === 0) return `🔥 New Lead: ${name} (${industry}) — Auto-dialing...`
+  if (cycle === 1) return `✅ Call Connected: ${duration} — Lead Qualified.`
+  return `📅 Calendar Sync: Appointment booked for ${appointment}.`
+}
+
+function LiveLeadFeed() {
+  const [items, setItems] = useState<FeedItem[]>(() =>
+    Array.from({ length: 4 }).map((_, idx) => ({
+      id: `seed-${idx}`,
+      line: buildFeedLine(idx),
+    })),
+  )
+
+  useEffect(() => {
+    let index = 4
+    const interval = setInterval(() => {
+      const nextItem = {
+        id: `item-${index}-${Date.now()}`,
+        line: buildFeedLine(index),
+      }
+      index += 1
+
+      setItems((prev) => {
+        const next = [nextItem, ...prev]
+        return next.slice(0, 5)
+      })
+    }, 1800)
+
+    return () => clearInterval(interval)
+  }, [])
+
+  return (
+    <div className="h-full rounded-2xl border border-zinc-800 bg-zinc-950/95 p-4">
+      <div className="mb-3 flex items-center justify-between border-b border-zinc-800 pb-3">
+        <span className="text-xs uppercase tracking-wider text-zinc-400">Live Activity Feed</span>
+        <span className="text-[11px] text-orange-400">Streaming</span>
+      </div>
+
+      <div className="space-y-2">
+        <AnimatePresence initial={false}>
+          {items.map((item) => (
+            <motion.div
+              key={item.id}
+              initial={{ opacity: 0, y: -14 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 16 }}
+              transition={{ duration: 0.35, ease: "easeOut" }}
+              className="border-l-2 border-orange-500 bg-zinc-900/70 px-3 py-2 text-sm text-zinc-200"
+            >
+              {item.line}
+            </motion.div>
+          ))}
+        </AnimatePresence>
+      </div>
+    </div>
+  )
+}
+
 export function DeveloperExperience() {
-  const [displayedText, setDisplayedText] = useState("")
-  const [isTyping, setIsTyping] = useState(false)
   const [hasAnimated, setHasAnimated] = useState(false)
   const [visibleChecks, setVisibleChecks] = useState<number[]>([])
   const sectionRef = useRef<HTMLElement>(null)
-
-  const fullText = `$ aeondial launch
-✓ Provisioning +1 (602) 555-0199... Done.
-✓ Predictive Dialer: Online [High Intensity]
-✓ AI Whisper Coaching: Active
-✓ CRM Sync: HubSpot & Salesforce connected
-Ready for outbound. Let's close.`
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -50,28 +117,6 @@ Ready for outbound. Let's close.`
   useEffect(() => {
     if (!hasAnimated) return
 
-    setDisplayedText("")
-    setIsTyping(true)
-
-    let currentIndex = 0
-    const typingSpeed = 8
-
-    const typeInterval = setInterval(() => {
-      if (currentIndex < fullText.length) {
-        setDisplayedText(fullText.slice(0, currentIndex + 1))
-        currentIndex++
-      } else {
-        clearInterval(typeInterval)
-        setIsTyping(false)
-      }
-    }, typingSpeed)
-
-    return () => clearInterval(typeInterval)
-  }, [fullText, hasAnimated])
-
-  useEffect(() => {
-    if (!hasAnimated) return
-
     setVisibleChecks([])
 
     features.forEach((_, index) => {
@@ -90,17 +135,15 @@ Ready for outbound. Let's close.`
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <div>
             <div className="flex items-center gap-2">
-              <AppWindow className="h-4 w-4 text-accent" />
-              <p className="font-mono text-sm font-medium uppercase tracking-wider text-accent">
-                Telephony Redefined
-              </p>
+              <Activity className="h-4 w-4 text-accent" />
+              <p className="font-mono text-sm font-medium uppercase tracking-wider text-accent">High Velocity</p>
             </div>
             <h2 className="mt-2 font-mono text-3xl font-bold tracking-tight sm:text-4xl text-balance">
-              The entire operation, initialized in one command
+              A high-velocity call center in a box
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              No hardware to ship. No PBX to configure. AEONDial scales from a solo seat to a global floor in
-              minutes.
+              Capture new leads, connect in seconds, and push qualified conversations straight to the calendar without
+              slowing your team down.
             </p>
             <ul className="mt-8 space-y-4">
               {features.map((feature, index) => (
@@ -119,37 +162,8 @@ Ready for outbound. Let's close.`
           </div>
 
           <div className="relative">
-            <div
-              className="aspect-video overflow-hidden rounded-2xl border border-border/60 flex flex-col"
-              style={{ backgroundColor: "#141414" }}
-            >
-              <div
-                className="flex h-8 items-center gap-2 border-b border-border/60 px-4 shrink-0"
-                style={{ backgroundColor: "#1a1a1a" }}
-              >
-                <div className="h-3 w-3 rounded-full bg-red-500/80" />
-                <div className="h-3 w-3 rounded-full bg-yellow-500/80" />
-                <div className="h-3 w-3 rounded-full bg-green-500/80" />
-                <span className="ml-2 text-xs text-muted-foreground">Terminal</span>
-              </div>
-              <div className="p-4 font-mono text-sm flex-1" style={{ backgroundColor: "#0d0d0d" }}>
-                <code className="text-muted-foreground">
-                  {displayedText.split("\n").map((line, i) => (
-                    <span key={i} className="block">
-                      {line.startsWith("$") ? (
-                        <span className="text-accent">{line}</span>
-                      ) : line.startsWith("✓") ? (
-                        <span className="text-green-400">{line}</span>
-                      ) : line.includes("Ready for outbound") ? (
-                        <span className="text-accent">{line}</span>
-                      ) : (
-                        <span>{line}</span>
-                      )}
-                    </span>
-                  ))}
-                  {isTyping && <span className="inline-block w-2 h-4 bg-accent animate-pulse ml-0.5 align-middle" />}
-                </code>
-              </div>
+            <div className="aspect-video">
+              <LiveLeadFeed />
             </div>
           </div>
         </div>

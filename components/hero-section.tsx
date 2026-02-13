@@ -300,7 +300,7 @@ export function HeroSection() {
             </span>
           </h1>
 
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground sm:text-xl lg:text-2xl">
+          <p className="mx-auto mt-6 max-w-4xl text-lg text-muted-foreground sm:text-xl lg:text-2xl md:whitespace-nowrap">
             The world’s first AI-native telephony stack for teams of 1 to 1,000.
           </p>
 

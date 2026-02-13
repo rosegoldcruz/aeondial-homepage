@@ -52,11 +52,12 @@ export function TestimonialsSection() {
               {items.map((item, index) => (
                 <article
                   key={`${item.company}-${index}`}
-                  className="w-[420px] rounded-2xl border border-border/60 bg-[#141414] p-6 shadow-lg shadow-black/20"
+                  className="group relative w-[420px] overflow-hidden rounded-2xl border border-border/60 bg-[#141414] p-6 shadow-lg shadow-black/20 transition-all duration-300 hover:-translate-y-1 hover:border-accent/60 hover:shadow-xl hover:shadow-accent/20"
                 >
-                  <p className="font-mono text-sm uppercase tracking-wider text-accent">{item.company}</p>
-                  <p className="mt-4 text-sm text-muted-foreground leading-relaxed">“{item.quote}”</p>
-                  <p className="mt-4 text-sm font-medium text-foreground">— {item.byline}</p>
+                  <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-accent/10 via-transparent to-accent/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  <p className="relative z-10 font-mono text-sm uppercase tracking-wider text-accent">{item.company}</p>
+                  <p className="relative z-10 mt-4 text-sm leading-relaxed text-muted-foreground">“{item.quote}”</p>
+                  <p className="relative z-10 mt-4 text-sm font-medium text-foreground">— {item.byline}</p>
                 </article>
               ))}
             </div>

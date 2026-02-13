@@ -12,12 +12,16 @@ import {
   Clock,
 } from "lucide-react"
 
+const DASHBOARD_ANIMATION_KEY = "aeondial-dashboard-animations-played"
+
 export function HeroSection() {
   const [codeLineIndex, setCodeLineIndex] = useState(0)
   const [displayedText1, setDisplayedText1] = useState("")
   const [displayedText2, setDisplayedText2] = useState("")
   const [isTypingDone, setIsTypingDone] = useState(false)
   const canvasRef = useRef<HTMLCanvasElement>(null)
+  const dashboardRef = useRef<HTMLDivElement>(null)
+  const [dashboardAnimated, setDashboardAnimated] = useState(false)
 
   const text1 = "Talk more."
   const text2 = "Close faster."
@@ -83,6 +87,33 @@ export function HeroSection() {
     }, 800)
     return () => clearInterval(interval)
   }, [codeLines.length])
+
+  useEffect(() => {
+    if (typeof window === "undefined") return
+
+    const hasAnimated = window.sessionStorage.getItem(DASHBOARD_ANIMATION_KEY) === "true"
+    if (hasAnimated) {
+      setDashboardAnimated(true)
+      return
+    }
+
+    const dashboardElement = dashboardRef.current
+    if (!dashboardElement) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return
+
+        setDashboardAnimated(true)
+        window.sessionStorage.setItem(DASHBOARD_ANIMATION_KEY, "true")
+        observer.disconnect()
+      },
+      { threshold: 0.35 },
+    )
+
+    observer.observe(dashboardElement)
+    return () => observer.disconnect()
+  }, [])
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -254,6 +285,24 @@ export function HeroSection() {
 
   const stageTotal = stageDistribution.reduce((sum, item) => sum + item.value, 0)
 
+  const funnelStages = [
+    { label: "New Lead / Initial Outreach", value: 100, amount: "$2.4M" },
+    { label: "Contacted", value: 80, amount: "$1.9M" },
+    { label: "Demo Scheduled", value: 58, amount: "$1.2M" },
+    { label: "Demo Completed", value: 40, amount: "$740K" },
+    { label: "Account Created", value: 22, amount: "$310K" },
+  ]
+
+  const circleRadius = 40
+  const circleCircumference = 2 * Math.PI * circleRadius
+  const opportunityStatusPercent = 100
+  const conversionPercent = 37
+
+  const opportunityStatusDash = (dashboardAnimated ? opportunityStatusPercent : 0) * (circleCircumference / 100)
+  const conversionDash = (dashboardAnimated ? conversionPercent : 0) * (circleCircumference / 100)
+
+  const linePointsFinal = "5,56 40,55 75,52 110,49 145,42 180,34 215,24 250,14 275,10"
+
   return (
     <section className="relative overflow-hidden pt-20 pb-10 sm:pt-28 sm:pb-16 lg:pt-36">
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#1a1a1a_1px,transparent_1px),linear-gradient(to_bottom,#1a1a1a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)]" />
@@ -350,7 +399,7 @@ export function HeroSection() {
           </div>
         </div>
 
-        <div className="mt-20 relative">
+        <div ref={dashboardRef} className="mt-20 relative">
           <div className="absolute -inset-4 bg-gradient-to-r from-accent/20 via-accent/10 to-accent/20 blur-3xl opacity-50" />
 
           <div className="relative overflow-x-auto pb-4 -mx-4 px-4 sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0">
@@ -406,8 +455,9 @@ export function HeroSection() {
                           fill="none"
                           stroke="#3b82f6"
                           strokeWidth="12"
-                          strokeDasharray="214 251"
+                          strokeDasharray={`${opportunityStatusDash} ${circleCircumference - opportunityStatusDash}`}
                           strokeLinecap="round"
+                          style={{ transition: "stroke-dasharray 1200ms cubic-bezier(0.22, 1, 0.36, 1)" }}
                         />
                       </svg>
                       <div className="absolute inset-0 flex items-center justify-center">
@@ -444,13 +494,37 @@ export function HeroSection() {
                         points="0,55 280,55"
                         strokeDasharray="4 4"
                       />
-                      <polyline
-                        fill="none"
-                        stroke="#3b82f6"
-                        strokeWidth="2.5"
-                        points="5,56 40,55 75,52 110,49 145,42 180,34 215,24 250,14 275,10"
-                      />
-                      <circle cx="275" cy="10" r="3" fill="#3b82f6" className="animate-pulse" />
+                      <g
+                        style={{
+                          transformOrigin: "center bottom",
+                          transformBox: "fill-box",
+                          transform: dashboardAnimated ? "translateY(0) scaleY(1)" : "translateY(42px) scaleY(0.05)",
+                          transition: "transform 1200ms cubic-bezier(0.22, 1, 0.36, 1)",
+                        }}
+                      >
+                        <polyline
+                          fill="none"
+                          stroke="#3b82f6"
+                          strokeWidth="2.5"
+                          points={linePointsFinal}
+                          style={{
+                            strokeDasharray: 320,
+                            strokeDashoffset: dashboardAnimated ? 0 : 320,
+                            transition: "stroke-dashoffset 1200ms cubic-bezier(0.22, 1, 0.36, 1)",
+                          }}
+                        />
+                        <circle
+                          cx="275"
+                          cy="10"
+                          r="3"
+                          fill="#3b82f6"
+                          className="animate-pulse"
+                          style={{
+                            opacity: dashboardAnimated ? 1 : 0,
+                            transition: "opacity 900ms ease 450ms",
+                          }}
+                        />
+                      </g>
                     </svg>
                   </div>
                 </div>
@@ -480,8 +554,9 @@ export function HeroSection() {
                           fill="none"
                           stroke="#22c55e"
                           strokeWidth="12"
-                          strokeDasharray="93 251"
+                          strokeDasharray={`${conversionDash} ${circleCircumference - conversionDash}`}
                           strokeLinecap="round"
+                          style={{ transition: "stroke-dasharray 1200ms cubic-bezier(0.22, 1, 0.36, 1)" }}
                         />
                       </svg>
                       <div className="absolute inset-0 flex items-center justify-center">
@@ -508,20 +583,20 @@ export function HeroSection() {
                     </span>
                   </div>
                   <div className="space-y-4">
-                    {[
-                      { label: "New Lead / Initial Outreach", value: 100, amount: "$2.4M" },
-                      { label: "Contacted", value: 80, amount: "$1.9M" },
-                      { label: "Demo Scheduled", value: 58, amount: "$1.2M" },
-                      { label: "Demo Completed", value: 40, amount: "$740K" },
-                      { label: "Account Created", value: 22, amount: "$310K" },
-                    ].map((item, i) => (
+                    {funnelStages.map((item, i) => (
                       <div key={i} className="space-y-1">
                         <div className="flex justify-between text-[10px]">
                           <span className="text-muted-foreground">{item.label}</span>
                           <span className="font-mono text-foreground">{item.amount}</span>
                         </div>
                         <div className="h-6 rounded bg-[#2a2a2a] overflow-hidden">
-                          <div className="h-full bg-accent" style={{ width: `${item.value}%` }} />
+                          <div
+                            className="h-full bg-accent"
+                            style={{
+                              width: dashboardAnimated ? `${item.value}%` : "0%",
+                              transition: `width 900ms cubic-bezier(0.22, 1, 0.36, 1) ${120 + i * 120}ms`,
+                            }}
+                          />
                         </div>
                       </div>
                     ))}
@@ -549,7 +624,8 @@ export function HeroSection() {
                           let offset = 0
                           return stageDistribution.map((item, index) => {
                             const pct = (item.value / stageTotal) * 100
-                            const dash = `${pct * 2.51327} ${251.327 - pct * 2.51327}`
+                            const animatedPct = dashboardAnimated ? pct : 0
+                            const dash = `${animatedPct * 2.51327} ${251.327 - animatedPct * 2.51327}`
                             const circle = (
                               <circle
                                 key={index}
@@ -561,6 +637,9 @@ export function HeroSection() {
                                 strokeWidth="12"
                                 strokeDasharray={dash}
                                 strokeDashoffset={-offset * 2.51327}
+                                style={{
+                                  transition: `stroke-dasharray 950ms cubic-bezier(0.22, 1, 0.36, 1) ${140 + index * 100}ms`,
+                                }}
                               />
                             )
                             offset += pct

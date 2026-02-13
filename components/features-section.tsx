@@ -2,49 +2,29 @@
 
 import type React from "react"
 
-import { Phone, Zap, Shield, Database, Globe, Users, PhoneCall, Headset, Sparkles } from "lucide-react"
+import { PhoneCall, Globe, Users, Headset, Sparkles } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
 
 const features = [
   {
-    icon: Phone,
-    title: "Instant Provisioning",
-    description: "Get local or toll-free numbers in 100+ countries instantly.",
-  },
-  {
-    icon: Zap,
-    title: "AI Power Dialer",
-    description: "Automated outbound sequencing with voicemail drop and sentiment analysis.",
-  },
-  {
-    icon: Shield,
-    title: "Enterprise-Grade Security",
-    description: "Role-based access, call encryption, and compliance-ready controls for regulated teams.",
-  },
-  {
-    icon: Database,
-    title: "Seamless CRM Integration",
-    description: "Sync leads from HubSpot, Salesforce, or Zapier with zero friction.",
-  },
-  {
     icon: PhoneCall,
-    title: "Crystal Clear VoIP",
-    description: "Low-latency global calling infrastructure using Tier-1 carriers.",
+    title: "Tier-1 VoIP",
+    description: "High-fidelity global calling powered by a redundant Tier-1 carrier network.",
   },
   {
     icon: Globe,
-    title: "Intelligent Call Routing",
-    description: "Route every call to the best available rep by intent, language, and region.",
+    title: "Intelligent Routing",
+    description: "Orchestrate every call to the best available rep based on intent, language, and lead priority.",
   },
   {
     icon: Users,
-    title: "Supervisor Live Dashboard",
-    description: "Monitor queues, listen in, and coach agents in real time without interrupting calls.",
+    title: "Supervisor Live HUD",
+    description: "Monitor queues, listen in, and coach agents in real-time without interrupting the flow.",
   },
   {
     icon: Headset,
     title: "Unified Agent Workspace",
-    description: "Calls, scripts, notes, and pipeline updates in one fast, distraction-free interface.",
+    description: "Every script, lead note, and pipeline update in one fast, distraction-free interface.",
   },
 ]
 
@@ -115,13 +95,14 @@ export function FeaturesSection() {
         <div className="mx-auto max-w-2xl lg:text-center">
           <div className="flex items-center justify-center gap-2 text-sm text-accent">
             <Sparkles className="h-4 w-4" />
-            <span className="font-mono uppercase tracking-wider">Built for Sales Teams</span>
+            <span className="font-mono uppercase tracking-wider">Infrastructure as Code</span>
           </div>
           <h2 className="mt-4 font-mono text-3xl font-bold tracking-tight sm:text-4xl text-balance">
-            A platform designed for high-volume outbound workflows
+            A platform designed for elite outbound performance
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            AEONDial removes complexity from call center operations so teams can focus on conversations that convert.
+            AEONDial removes the technical friction from telephony operations so you can focus on the conversations
+            that actually close.
           </p>
         </div>
 

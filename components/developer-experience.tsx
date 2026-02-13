@@ -4,10 +4,10 @@ import { useState, useEffect, useRef } from "react"
 import { Check, AppWindow } from "lucide-react"
 
 const features = [
-  "One-Click Global Provisioning: Claim local or toll-free numbers in 100+ countries and start dialing in under 60 seconds.",
-  "Predictive AI Sequencing: Our engine anticipates agent availability to eliminate dead air and maximize live connections.",
-  "Live Whisper HUD: An intelligent AI overlay that prompts your agents with real-time rebuttals and closing cues during live calls.",
-  "Full-Stack CRM Sync: Zero-latency data logging that automatically updates your lead status, recordings, and transcripts across your entire stack.",
+  "One-Click Provisioning: Claim local or toll-free numbers in 100+ countries and start dialing in under 60 seconds.",
+  "Predictive Sequencing: Our engine anticipates agent availability to eliminate dead air and maximize live connections.",
+  "Real-Time Whisper HUD: An intelligent AI overlay that prompts agents with live rebuttals and closing cues during calls.",
+  "Deep-Link CRM Sync: Zero-latency data logging that automatically updates your lead status and transcripts across your entire stack.",
 ]
 
 export function DeveloperExperience() {
@@ -92,15 +92,15 @@ Ready for outbound. Let's close.`
             <div className="flex items-center gap-2">
               <AppWindow className="h-4 w-4 text-accent" />
               <p className="font-mono text-sm font-medium uppercase tracking-wider text-accent">
-                Sales Experience First
+                Telephony Redefined
               </p>
             </div>
             <h2 className="mt-2 font-mono text-3xl font-bold tracking-tight sm:text-4xl text-balance">
-              Designed around how revenue teams actually work
+              The entire operation, initialized in one command
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              AEONDial adapts to your workflow — not the other way around. Build once. Run anywhere. Collaborate
-              instantly.
+              No hardware to ship. No PBX to configure. AEONDial scales from a solo seat to a global floor in
+              minutes.
             </p>
             <ul className="mt-8 space-y-4">
               {features.map((feature, index) => (

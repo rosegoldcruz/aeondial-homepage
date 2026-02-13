@@ -44,10 +44,10 @@ call.on('sentiment_alert', (data) => {
 }
 
 const features = [
-  { key: "framework", label: "Call automation workflow" },
-  { key: "ssr", label: "Lead object schema" },
-  { key: "env", label: "CRM event sync" },
-  { key: "cache", label: "Live sales metrics" },
+  { key: "framework", label: "Lead Lifecycle" },
+  { key: "ssr", label: "Object Schema" },
+  { key: "env", label: "Real-Time Events" },
+  { key: "cache", label: "Sales Intelligence" },
 ] as const
 
 export function CodeSection() {
@@ -82,14 +82,13 @@ export function CodeSection() {
         <div className="mx-auto max-w-2xl lg:text-center">
           <div className="flex items-center justify-center gap-2">
             <Blocks className="h-4 w-4 text-accent" />
-            <p className="text-sm font-medium uppercase tracking-wider text-accent">Built for Sales Automation</p>
+            <p className="text-sm font-medium uppercase tracking-wider text-accent">Automation Layer</p>
           </div>
           <h2 className="mt-2 font-mono text-3xl font-bold tracking-tight sm:text-4xl text-balance">
-            Workflow automation for every lead touchpoint
+            Workflow orchestration for every lead touchpoint
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            AEONDial gives reps and managers a single automation layer for calls, lead updates, and conversion-focused
-            follow-up.
+            AEONDial gives you a single programmable layer for calls, lead updates, and conversion-focused follow-up.
           </p>
         </div>
 

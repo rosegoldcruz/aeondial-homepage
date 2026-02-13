@@ -411,7 +411,10 @@ export function HeroSection() {
                         />
                       </svg>
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <span className="font-mono text-2xl font-bold">1</span>
+                        <div className="text-center leading-tight">
+                          <div className="font-mono text-lg font-bold">186</div>
+                          <div className="text-[10px] text-muted-foreground">of 186</div>
+                        </div>
                       </div>
                     </div>
                     <span className="text-xs text-muted-foreground">Open • 186</span>
@@ -566,7 +569,10 @@ export function HeroSection() {
                         })()}
                       </svg>
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <span className="font-mono text-2xl font-bold">1</span>
+                        <div className="text-center leading-tight">
+                          <div className="font-mono text-lg font-bold">271</div>
+                          <div className="text-[10px] text-muted-foreground">of 271</div>
+                        </div>
                       </div>
                     </div>
                     <div className="space-y-1 text-[10px]">

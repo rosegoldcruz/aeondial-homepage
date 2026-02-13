@@ -54,13 +54,6 @@ export function Navbar() {
               Built for React
             </a>
             <a
-              href="#docs"
-              onClick={(e) => handleSmoothScroll(e, "#docs")}
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground cursor-pointer"
-            >
-              Docs
-            </a>
-            <a
               href="#pricing"
               onClick={(e) => handleSmoothScroll(e, "#pricing")}
               className="text-sm text-muted-foreground transition-colors hover:text-foreground cursor-pointer"
@@ -109,13 +102,6 @@ export function Navbar() {
               className="text-sm text-muted-foreground cursor-pointer"
             >
               Built for React
-            </a>
-            <a
-              href="#docs"
-              onClick={(e) => handleSmoothScroll(e, "#docs")}
-              className="text-sm text-muted-foreground cursor-pointer"
-            >
-              Docs
             </a>
             <a
               href="#pricing"

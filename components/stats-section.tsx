@@ -1,8 +1,8 @@
 const stats = [
-  { value: "20", label: "days saved on daily builds" },
-  { value: "98%", label: "faster time to market" },
-  { value: "300%", label: "increase in deployments" },
-  { value: "6×", label: "faster to build + deploy" },
+  { value: "40%", label: "increase in talk time" },
+  { value: "98%", label: "Call Connection Rate" },
+  { value: "3x", label: "Lead Conversion" },
+  { value: "24/7", label: "real-time supervisor visibility" },
 ]
 
 export function StatsSection() {

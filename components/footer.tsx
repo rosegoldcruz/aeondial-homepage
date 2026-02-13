@@ -15,9 +15,9 @@ export function Footer() {
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center gap-2">
               <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-foreground">
-                <span className="text-sm font-bold text-background">D</span>
+                <span className="text-sm font-bold text-background">A</span>
               </div>
-              <span className="text-lg font-semibold tracking-tight font-mono">Devflow</span>
+              <span className="text-lg font-semibold tracking-tight font-mono">AeonDial</span>
             </Link>
             <p className="mt-4 max-w-xs text-sm text-muted-foreground">
               A next-generation development platform designed for teams building with modern cloud technologies.
@@ -42,7 +42,7 @@ export function Footer() {
 
         <div className="mt-12 border-t border-border/40 pt-8">
           <p className="text-center text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Devflow. All rights reserved.
+            © {new Date().getFullYear()} AeonDial. All rights reserved.
           </p>
         </div>
       </div>

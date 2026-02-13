@@ -8,7 +8,7 @@ const _geist = Geist({ subsets: ["latin"] })
 const _jetbrainsMono = JetBrains_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Devflow — Build. Ship. Scale. Faster.",
+  title: "AeonDial — Talk More. Close Faster.",
   description:
     "A next-generation development platform designed for teams building with React, Next.js, and modern cloud technologies.",
   generator: "v0.app",

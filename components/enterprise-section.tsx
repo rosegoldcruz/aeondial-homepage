@@ -40,7 +40,7 @@ const enterpriseFeatures = [
   {
     icon: Building2,
     title: "On-Premise Option",
-    description: "Deploy Devflow in your own infrastructure for maximum control.",
+    description: "Deploy AeonDial in your own infrastructure for maximum control.",
   },
 ]
 
@@ -92,7 +92,7 @@ export function EnterpriseSection() {
         <div className="mx-auto mt-16 max-w-2xl rounded-2xl border border-accent/40 bg-gradient-to-b from-accent/10 to-transparent p-8 text-center sm:p-12">
           <h3 className="font-mono text-xl font-bold">Ready to scale?</h3>
           <p className="mt-4 text-muted-foreground">
-            Talk to our sales team to learn how Devflow can power your enterprise.
+            Talk to our sales team to learn how AeonDial can power your enterprise.
           </p>
           <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
             <Button size="lg">Contact Sales</Button>

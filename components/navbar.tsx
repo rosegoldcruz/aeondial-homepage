@@ -29,7 +29,7 @@ export function Navbar() {
         <div className="flex items-center gap-8">
           <Link href="/" className="flex items-center gap-2">
             
-            <span className="text-lg font-semibold tracking-tight font-mono">Devflow</span>
+            <span className="text-lg font-semibold tracking-tight font-mono">AeonDial</span>
           </Link>
           <nav className="hidden items-center gap-6 md:flex">
             <a

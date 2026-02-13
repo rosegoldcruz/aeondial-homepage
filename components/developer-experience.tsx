@@ -4,9 +4,9 @@ import { useState, useEffect, useRef } from "react"
 import { Check, AppWindow } from "lucide-react"
 
 const features = [
-  "Instant environment provisioning",
-  "Live preview and hot reload",
-  "Built-in terminal and Git integration",
+  "Instant number provisioning",
+  "Live call queue monitoring",
+  "Built-in dialer and CRM sync",
   "Team-ready collaboration tools",
 ]
 
@@ -17,13 +17,13 @@ export function DeveloperExperience() {
   const [visibleChecks, setVisibleChecks] = useState<number[]>([])
   const sectionRef = useRef<HTMLElement>(null)
 
-  const fullText = `$ devflow start
+  const fullText = `$ aeondial launch
 
-✓ Environment ready in 1.2s
-✓ Hot reload enabled
-✓ Preview: https://preview.devflow.app
+✓ Dialer connected in 1.2s
+✓ CRM sync enabled
+✓ Queue: Sales_Team_A online
 
-Ready for development ▸`
+Ready for outbound ▸`
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -93,14 +93,14 @@ Ready for development ▸`
             <div className="flex items-center gap-2">
               <AppWindow className="h-4 w-4 text-accent" />
               <p className="font-mono text-sm font-medium uppercase tracking-wider text-accent">
-                Developer Experience First
+                Sales Experience First
               </p>
             </div>
             <h2 className="mt-2 font-mono text-3xl font-bold tracking-tight sm:text-4xl text-balance">
-              Designed around how developers actually work
+              Designed around how revenue teams actually work
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              Devflow adapts to your workflow — not the other way around. Build once. Run anywhere. Collaborate
+              AeonDial adapts to your workflow — not the other way around. Build once. Run anywhere. Collaborate
               instantly.
             </p>
             <ul className="mt-8 space-y-4">
@@ -141,7 +141,7 @@ Ready for development ▸`
                         <span className="text-accent">{line}</span>
                       ) : line.startsWith("✓") ? (
                         <span className="text-green-400">{line}</span>
-                      ) : line.includes("Ready for development") ? (
+                      ) : line.includes("Ready for outbound") ? (
                         <span className="text-accent">{line}</span>
                       ) : (
                         <span>{line}</span>

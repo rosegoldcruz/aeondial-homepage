@@ -4,43 +4,50 @@ import { useState, useEffect } from "react"
 import { Blocks } from "lucide-react"
 
 const codeExamples = {
-  framework: `$ devflow init
+  framework: `const call = aeonDial.initiate({
+  to: "+1234567890",
+  agent: "Sales_Team_A",
+  script: "Inbound_Lead_V2"
+});
 
-✓ Detected: Next.js 14 (App Router)
-✓ Found: TypeScript configuration
-✓ Found: Tailwind CSS
-✓ Ready! Run 'devflow dev' to start`,
+call.on('sentiment_alert', (data) => {
+  crm.updateLead(data.leadId, { status: 'Hot' });
+});`,
 
-  ssr: `// pages/api/data.ts
+  ssr: `{
+  "leadId": "LD-10932",
+  "name": "Jordan Diaz",
+  "phone": "+1234567890",
+  "source": "Landing Page",
+  "status": "New",
+  "priority": "High",
+  "assignedTo": "Sales_Team_A"
+}`,
 
-export async function getServerSideProps() {
-  const data = await devflow.fetch('/api')
-  return { props: { data }, revalidate: 60 }
-}
+  env: `workflow.on('call_completed', async (event) => {
+  if (event.outcome === 'Connected') {
+    await crm.updateLead(event.leadId, {
+      lastCallAt: event.endedAt,
+      disposition: event.disposition,
+      nextStep: 'Follow-up'
+    });
+  }
+});`,
 
-✓ Deployed to edge in 23 regions`,
+  cache: `analytics.today({
+  team: "Sales_Team_A"
+})
 
-  env: `$ devflow env pull
-
-✓ Pulled 12 variables from production
-✓ Encrypted with AES-256
-
-$ devflow env push --preview
-✓ Synced to all preview deployments`,
-
-  cache: `$ devflow build
-
-✓ 847 modules cached (98.2% hit rate)
-✓ Only 15 modules rebuilt
-
-Build completed in 2.3s (95% faster)`,
+✓ Talk Time: +40%
+✓ Connection Rate: 98%
+✓ Lead Conversion: 3x`,
 }
 
 const features = [
-  { key: "framework", label: "Automatic framework detection" },
-  { key: "ssr", label: "Server-side rendering support" },
-  { key: "env", label: "Environment variables management" },
-  { key: "cache", label: "Smart caching and fast rebuilds" },
+  { key: "framework", label: "Call automation workflow" },
+  { key: "ssr", label: "Lead object schema" },
+  { key: "env", label: "CRM event sync" },
+  { key: "cache", label: "Live sales metrics" },
 ] as const
 
 export function CodeSection() {
@@ -75,14 +82,14 @@ export function CodeSection() {
         <div className="mx-auto max-w-2xl lg:text-center">
           <div className="flex items-center justify-center gap-2">
             <Blocks className="h-4 w-4 text-accent" />
-            <p className="text-sm font-medium uppercase tracking-wider text-accent">Built for React & Next.js</p>
+            <p className="text-sm font-medium uppercase tracking-wider text-accent">Built for Sales Automation</p>
           </div>
           <h2 className="mt-2 font-mono text-3xl font-bold tracking-tight sm:text-4xl text-balance">
-            Native performance for modern stacks
+            Workflow automation for every lead touchpoint
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Devflow is optimized specifically for modern frontend development with automatic framework detection,
-            server-side rendering support, and smart caching.
+            AeonDial gives reps and managers a single automation layer for calls, lead updates, and conversion-focused
+            follow-up.
           </p>
         </div>
 

@@ -25,11 +25,11 @@ export function HeroSection() {
   const [isTypingDone, setIsTypingDone] = useState(false)
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
-  const text1 = "Build faster."
-  const text2 = "Deploy smarter."
+  const text1 = "Talk more."
+  const text2 = "Close faster."
 
   const codeLines = [
-    "import { createClient } from '@devflow/sdk'",
+    "import { createClient } from '@aeondial/sdk'",
     "import { cache } from 'react'",
     "",
     "const client = createClient({",
@@ -280,9 +280,9 @@ export function HeroSection() {
 
           <h1 className="font-mono text-4xl font-bold tracking-tight sm:text-6xl lg:text-7xl relative">
             <span className="invisible" aria-hidden="true">
-              <span className="text-balance">Build faster.</span>
+              <span className="text-balance">Talk more.</span>
               <br />
-              <span className="text-balance">Deploy smarter.</span>
+              <span className="text-balance">Close faster.</span>
             </span>
 
             <span className="absolute inset-0 flex flex-col items-center">
@@ -306,8 +306,8 @@ export function HeroSection() {
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground sm:text-xl lg:text-2xl">
-            A powerful developer experience engineered for speed, reliability, and scalability. Build with React,
-            Next.js, and modern cloud technologies.
+            An AI-powered CRM and telephony suite engineered for high-volume sales teams. Integrated dialer, lead
+            management, and real-time analytics.
           </p>
 
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -333,16 +333,16 @@ export function HeroSection() {
                     <div className="h-3 w-3 rounded-full bg-yellow-500/80" />
                     <div className="h-3 w-3 rounded-full bg-green-500/80" />
                   </div>
-                  <span className="text-xs text-muted-foreground font-mono">devflow dashboard</span>
+                  <span className="text-xs text-muted-foreground font-mono">AeonDial dashboard</span>
                 </div>
                 <div className="flex items-center gap-4">
                   <div className="flex items-center gap-2 text-xs text-muted-foreground">
                     <Globe className="h-3 w-3" />
-                    <span>us-east-1</span>
+                    <span>Active Lines</span>
                   </div>
                   <div className="flex items-center gap-2 text-xs text-muted-foreground">
                     <Clock className="h-3 w-3" />
-                    <span>99.99% uptime</span>
+                    <span>Call Quality: Excellent</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <div className="h-2 w-2 rounded-full bg-accent animate-pulse" />
@@ -366,8 +366,8 @@ export function HeroSection() {
                     <Cpu className="h-4 w-4 text-blue-400" />
                   </div>
                   <div>
-                    <span className="text-lg font-mono font-bold">24ms</span>
-                    <p className="text-[10px] text-muted-foreground">Avg Latency</p>
+                    <span className="text-lg font-mono font-bold">84%</span>
+                    <p className="text-[10px] text-muted-foreground">ASR</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3 p-3 rounded-lg bg-[#1c1c1c] border border-border/40">

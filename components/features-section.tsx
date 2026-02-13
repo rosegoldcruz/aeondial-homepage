@@ -2,49 +2,49 @@
 
 import type React from "react"
 
-import { Cloud, Zap, Shield, GitBranch, Globe, Cpu, Database, Layers, Sparkles } from "lucide-react"
+import { Phone, Zap, Shield, Database, Globe, Users, PhoneCall, Headset, Sparkles } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
 
 const features = [
   {
-    icon: Cloud,
-    title: "Zero-config cloud environments",
-    description: "Spin up isolated, production-ready environments in seconds without any configuration.",
+    icon: Phone,
+    title: "Instant Provisioning",
+    description: "Get local or toll-free numbers in 100+ countries instantly.",
   },
   {
     icon: Zap,
-    title: "Optimized for modern frameworks",
-    description: "Native support for React, Next.js, and other modern frontend frameworks out of the box.",
+    title: "AI Power Dialer",
+    description: "Automated outbound sequencing with voicemail drop and sentiment analysis.",
   },
   {
     icon: Shield,
-    title: "Secure & isolated setups",
-    description: "Every environment is fully isolated with enterprise-grade security built in.",
-  },
-  {
-    icon: GitBranch,
-    title: "Git-native workflows",
-    description: "Seamless integration with your Git workflow. Branch previews and automated deployments.",
-  },
-  {
-    icon: Globe,
-    title: "Global edge network",
-    description: "Deploy to 100+ edge locations worldwide for ultra-low latency and blazing fast responses.",
-  },
-  {
-    icon: Cpu,
-    title: "Serverless compute",
-    description: "Auto-scaling serverless functions that handle any load without managing infrastructure.",
+    title: "Enterprise-Grade Security",
+    description: "Role-based access, call encryption, and compliance-ready controls for regulated teams.",
   },
   {
     icon: Database,
-    title: "Integrated databases",
-    description: "One-click database provisioning with automatic backups and edge replication.",
+    title: "Seamless CRM Integration",
+    description: "Sync leads from HubSpot, Salesforce, or Zapier with zero friction.",
   },
   {
-    icon: Layers,
-    title: "Multi-environment staging",
-    description: "Create unlimited staging environments that mirror production perfectly.",
+    icon: PhoneCall,
+    title: "Crystal Clear VoIP",
+    description: "Low-latency global calling infrastructure using Tier-1 carriers.",
+  },
+  {
+    icon: Globe,
+    title: "Intelligent Call Routing",
+    description: "Route every call to the best available rep by intent, language, and region.",
+  },
+  {
+    icon: Users,
+    title: "Supervisor Live Dashboard",
+    description: "Monitor queues, listen in, and coach agents in real time without interrupting calls.",
+  },
+  {
+    icon: Headset,
+    title: "Unified Agent Workspace",
+    description: "Calls, scripts, notes, and pipeline updates in one fast, distraction-free interface.",
   },
 ]
 
@@ -115,13 +115,13 @@ export function FeaturesSection() {
         <div className="mx-auto max-w-2xl lg:text-center">
           <div className="flex items-center justify-center gap-2 text-sm text-accent">
             <Sparkles className="h-4 w-4" />
-            <span className="font-mono uppercase tracking-wider">Built for Modern Development</span>
+            <span className="font-mono uppercase tracking-wider">Built for Sales Teams</span>
           </div>
           <h2 className="mt-4 font-mono text-3xl font-bold tracking-tight sm:text-4xl text-balance">
-            A platform designed for real-world workflows
+            A platform designed for high-volume outbound workflows
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Devflow removes complexity from development environments so teams can focus on building great products.
+            AeonDial removes complexity from call center operations so teams can focus on conversations that convert.
           </p>
         </div>
 

@@ -121,7 +121,7 @@ export function FeaturesSection() {
             A platform designed for high-volume outbound workflows
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            AeonDial removes complexity from call center operations so teams can focus on conversations that convert.
+            AEONDial removes complexity from call center operations so teams can focus on conversations that convert.
           </p>
         </div>
 

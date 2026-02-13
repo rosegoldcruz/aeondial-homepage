@@ -17,7 +17,7 @@ const docCategories = [
   {
     icon: Terminal,
     title: "CLI Reference",
-    description: "Complete command reference for the AeonDial CLI",
+    description: "Complete command reference for the AEONDial CLI",
     links: ["Commands", "Configuration", "Plugins"],
   },
   {
@@ -51,7 +51,7 @@ export function DocsSection() {
           </div>
           <h2 className="mt-4 font-mono text-3xl font-bold tracking-tight sm:text-4xl">Everything you need to know</h2>
           <p className="mt-4 text-muted-foreground">
-            Comprehensive documentation to help you get started and master every feature of AeonDial.
+            Comprehensive documentation to help you get started and master every feature of AEONDial.
           </p>
         </div>
 

@@ -29,7 +29,7 @@ export function HeroSection() {
   const text2 = "Close faster."
 
   const codeLines = [
-    "import { createClient } from '@aeondial/sdk'",
+    "import { createClient } from '@AEONDial/sdk'",
     "import { cache } from 'react'",
     "",
     "const client = createClient({",
@@ -250,14 +250,15 @@ export function HeroSection() {
     }
   }, [])
 
-  const chartData = [
-    { label: "API Routes", value: 45, color: "#10b981" },
-    { label: "Static", value: 30, color: "#3b82f6" },
-    { label: "SSR", value: 25, color: "#a855f7" },
+  const stageDistribution = [
+    { label: "New Lead / Initial Outreach", value: 42, color: "#3b82f6" },
+    { label: "Contacted", value: 24, color: "#22c55e" },
+    { label: "Demo Scheduled", value: 18, color: "#a855f7" },
+    { label: "Demo Completed", value: 10, color: "#f97316" },
+    { label: "Account Created", value: 6, color: "#06b6d4" },
   ]
 
-  const total = chartData.reduce((sum, item) => sum + item.value, 0)
-  let cumulativePercent = 0
+  const stageTotal = stageDistribution.reduce((sum, item) => sum + item.value, 0)
 
   return (
     <section className="relative overflow-hidden pt-20 pb-10 sm:pt-28 sm:pb-16 lg:pt-36">
@@ -306,8 +307,12 @@ export function HeroSection() {
           </h1>
 
           <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground sm:text-xl lg:text-2xl">
-            An AI-powered CRM and telephony suite engineered for high-volume sales teams. Integrated dialer, lead
-            management, and real-time analytics.
+            The ultimate sales engine for teams of 1 or 1,000. Launch a world-class operation in minutes with a
+            Predictive AI Power-Dialer and Real-Time Whisper Coaching. From lead management to live AI-driven call
+            guidance, we eliminate dead air with smart predictive sequencing that keeps your pipeline moving without
+            the manual grind. Whether you’re closing your first deal or managing a floor of hundreds, our live
+            AI-agent overlay listens, learns, and prompts your next move so you never miss a beat. AEONDial isn’t
+            just a tool; it's a scalable sales ecosystem that grows exactly as fast as you do.
           </p>
 
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -333,7 +338,7 @@ export function HeroSection() {
                     <div className="h-3 w-3 rounded-full bg-yellow-500/80" />
                     <div className="h-3 w-3 rounded-full bg-green-500/80" />
                   </div>
-                  <span className="text-xs text-muted-foreground font-mono">AeonDial dashboard</span>
+                  <span className="text-xs text-muted-foreground font-mono">AEONDial dashboard</span>
                 </div>
                 <div className="flex items-center gap-4">
                   <div className="flex items-center gap-2 text-xs text-muted-foreground">
@@ -351,256 +356,203 @@ export function HeroSection() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-4 gap-4 p-4 border-b border-border/60 bg-[#181818]">
-                <div className="flex items-center gap-3 p-3 rounded-lg bg-[#1c1c1c] border border-border/40">
-                  <div className="p-2 rounded-lg bg-green-500/10">
-                    <Activity className="h-4 w-4 text-green-400" />
+              <div className="grid grid-cols-3 gap-4 p-4 border-b border-border/60 bg-[#181818]">
+                <div className="rounded-xl border border-border/40 bg-[#1c1c1c] p-4">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-sm font-medium">Opportunity Status</h3>
+                    <span className="rounded-md border border-border/60 px-2 py-0.5 text-[10px] text-muted-foreground">
+                      All Pipelines
+                    </span>
                   </div>
-                  <div>
-                    <span className="text-lg font-mono font-bold">99.9%</span>
-                    <p className="text-[10px] text-muted-foreground">Availability</p>
+                  <div className="mt-3 flex items-end gap-2">
+                    <span className="text-4xl font-mono font-bold">186</span>
+                    <span className="mb-1 text-xs text-green-400 flex items-center gap-1">
+                      <TrendingUp className="h-3 w-3" />
+                      +100% vs Last 31 Days
+                    </span>
+                  </div>
+                  <div className="mt-4 flex items-center justify-between">
+                    <div className="relative h-24 w-24">
+                      <svg viewBox="0 0 100 100" className="h-full w-full -rotate-90">
+                        <circle cx="50" cy="50" r="40" fill="none" stroke="#2a2a2a" strokeWidth="12" />
+                        <circle
+                          cx="50"
+                          cy="50"
+                          r="40"
+                          fill="none"
+                          stroke="#3b82f6"
+                          strokeWidth="12"
+                          strokeDasharray="214 251"
+                          strokeLinecap="round"
+                        />
+                      </svg>
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <span className="font-mono text-2xl font-bold">1</span>
+                      </div>
+                    </div>
+                    <span className="text-xs text-muted-foreground">Open • 186</span>
                   </div>
                 </div>
-                <div className="flex items-center gap-3 p-3 rounded-lg bg-[#1c1c1c] border border-border/40">
-                  <div className="p-2 rounded-lg bg-blue-500/10">
-                    <Cpu className="h-4 w-4 text-blue-400" />
+
+                <div className="rounded-xl border border-border/40 bg-[#1c1c1c] p-4">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-sm font-medium">Opportunity Value</h3>
+                    <span className="rounded-md border border-border/60 px-2 py-0.5 text-[10px] text-muted-foreground">
+                      All Pipelines
+                    </span>
                   </div>
-                  <div>
-                    <span className="text-lg font-mono font-bold">84%</span>
-                    <p className="text-[10px] text-muted-foreground">ASR</p>
+                  <div className="mt-3 flex items-end gap-2">
+                    <span className="text-4xl font-mono font-bold">$2.8M</span>
+                    <span className="mb-1 text-xs text-green-400 flex items-center gap-1">
+                      <TrendingUp className="h-3 w-3" />
+                      +280% vs Last 31 Days
+                    </span>
+                  </div>
+                  <div className="mt-5 rounded-lg border border-border/40 bg-[#171717] p-2">
+                    <svg viewBox="0 0 280 70" className="h-[70px] w-full">
+                      <polyline
+                        fill="none"
+                        stroke="#2a2a2a"
+                        strokeWidth="1"
+                        points="0,55 280,55"
+                        strokeDasharray="4 4"
+                      />
+                      <polyline
+                        fill="none"
+                        stroke="#3b82f6"
+                        strokeWidth="2.5"
+                        points="5,56 40,55 75,52 110,49 145,42 180,34 215,24 250,14 275,10"
+                      />
+                      <circle cx="275" cy="10" r="3" fill="#3b82f6" className="animate-pulse" />
+                    </svg>
                   </div>
                 </div>
-                <div className="flex items-center gap-3 p-3 rounded-lg bg-[#1c1c1c] border border-border/40">
-                  <div className="p-2 rounded-lg bg-purple-500/10">
-                    <Database className="h-4 w-4 text-purple-400" />
+
+                <div className="rounded-xl border border-border/40 bg-[#1c1c1c] p-4">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-sm font-medium">Conversion</h3>
+                    <span className="rounded-md border border-border/60 px-2 py-0.5 text-[10px] text-muted-foreground">
+                      All Pipelines
+                    </span>
                   </div>
-                  <div>
-                    <span className="text-lg font-mono font-bold">2.4TB</span>
-                    <p className="text-[10px] text-muted-foreground">Data Transfer</p>
+                  <div className="mt-3 flex items-end gap-2">
+                    <span className="text-4xl font-mono font-bold">37%</span>
+                    <span className="mb-1 text-xs text-green-400 flex items-center gap-1">
+                      <TrendingUp className="h-3 w-3" />
+                      +11% vs Last 31 Days
+                    </span>
                   </div>
-                </div>
-                <div className="flex items-center gap-3 p-3 rounded-lg bg-[#1c1c1c] border border-border/40">
-                  <div className="p-2 rounded-lg bg-accent/10">
-                    <HardDrive className="h-4 w-4 text-accent" />
-                  </div>
-                  <div>
-                    <span className="text-lg font-mono font-bold">847</span>
-                    <p className="text-[10px] text-muted-foreground">Edge Nodes</p>
+                  <div className="mt-4 flex justify-center">
+                    <div className="relative h-24 w-24">
+                      <svg viewBox="0 0 100 100" className="h-full w-full -rotate-90">
+                        <circle cx="50" cy="50" r="40" fill="none" stroke="#2a2a2a" strokeWidth="12" />
+                        <circle
+                          cx="50"
+                          cy="50"
+                          r="40"
+                          fill="none"
+                          stroke="#22c55e"
+                          strokeWidth="12"
+                          strokeDasharray="93 251"
+                          strokeLinecap="round"
+                        />
+                      </svg>
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <span className="font-mono text-xl font-bold">37%</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <div className="grid grid-cols-4 divide-x divide-border/60 min-h-[420px]">
-                <div className="p-5">
-                  <h3 className="text-sm font-medium text-muted-foreground mb-4">Recent Deployments</h3>
-                  <div className="space-y-2">
-                    {[
-                      { branch: "main", status: "success", time: "2m ago", env: "Production", hash: "a3f8c21" },
-                      { branch: "feature/auth", status: "success", time: "15m ago", env: "Preview", hash: "b7d2e09" },
-                      {
-                        branch: "fix/api-routes",
-                        status: "building",
-                        time: "Just now",
-                        env: "Preview",
-                        hash: "c9a1f34",
-                      },
-                      {
-                        branch: "feature/dashboard",
-                        status: "success",
-                        time: "1h ago",
-                        env: "Preview",
-                        hash: "d4e6b78",
-                      },
-                      { branch: "hotfix/cache", status: "success", time: "2h ago", env: "Production", hash: "e2c9d56" },
-                      {
-                        branch: "feature/analytics",
-                        status: "success",
-                        time: "3h ago",
-                        env: "Preview",
-                        hash: "f1a8c23",
-                      },
-                    ].map((deploy, i) => (
-                      <div
-                        key={i}
-                        className="flex items-center justify-between p-2.5 rounded-lg bg-[#1c1c1c] border border-border/40"
-                      >
-                        <div className="flex items-center gap-2">
-                          {deploy.status === "success" ? (
-                            <CheckCircle2 className="h-3.5 w-3.5 text-green-500" />
-                          ) : (
-                            <div className="h-3.5 w-3.5 rounded-full border-2 border-accent border-t-transparent animate-spin" />
-                          )}
-                          <div>
-                            <div className="flex items-center gap-1.5">
-                              <GitBranch className="h-3 w-3 text-muted-foreground" />
-                              <span className="text-xs font-mono">{deploy.branch}</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                              <span className="text-[10px] text-muted-foreground">{deploy.env}</span>
-                              <span className="text-[10px] text-muted-foreground/60 font-mono">{deploy.hash}</span>
-                            </div>
-                          </div>
-                        </div>
-                        <span className="text-[10px] text-muted-foreground">{deploy.time}</span>
-                      </div>
-                    ))}
+              <div className="grid grid-cols-5 gap-4 p-4 min-h-[360px] bg-[#151515]">
+                <div className="col-span-3 rounded-xl border border-border/40 bg-[#1c1c1c] p-4">
+                  <div className="mb-4 flex items-center justify-between">
+                    <h3 className="text-sm font-medium">Funnel</h3>
+                    <span className="rounded-md border border-border/60 px-2 py-0.5 text-[10px] text-muted-foreground">
+                      AEON Pipeline
+                    </span>
                   </div>
-                </div>
-
-                <div className="p-5">
-                  <h3 className="text-sm font-medium text-muted-foreground mb-4">Route Distribution</h3>
-                  <div className="flex flex-col items-center">
-                    <div className="relative w-36 h-36">
-                      <svg viewBox="0 0 100 100" className="w-full h-full -rotate-90">
-                        {chartData.map((item, index) => {
-                          const percent = (item.value / total) * 100
-                          const dashArray = `${percent * 2.51327} ${251.327 - percent * 2.51327}`
-                          const dashOffset = -cumulativePercent * 2.51327
-                          cumulativePercent += percent
-                          return (
-                            <circle
-                              key={index}
-                              cx="50"
-                              cy="50"
-                              r="40"
-                              fill="none"
-                              stroke={item.color}
-                              strokeWidth="12"
-                              strokeDasharray={dashArray}
-                              strokeDashoffset={dashOffset}
-                              className="transition-all duration-1000"
-                            />
-                          )
-                        })}
-                      </svg>
-                      <div className="absolute inset-0 flex flex-col items-center justify-center">
-                        <span className="text-2xl font-mono font-bold">156</span>
-                        <span className="text-[10px] text-muted-foreground">routes</span>
-                      </div>
-                    </div>
-                    <div className="mt-4 flex flex-wrap justify-center gap-3">
-                      {chartData.map((item, index) => (
-                        <div key={index} className="flex items-center gap-1.5">
-                          <div className="w-2 h-2 rounded-full" style={{ backgroundColor: item.color }} />
-                          <span className="text-[10px] text-muted-foreground">{item.label}</span>
-                          <span className="text-[10px] font-mono text-foreground">{item.value}%</span>
-                        </div>
-                      ))}
-                    </div>
+                  <div className="mb-4 flex items-end gap-2">
+                    <span className="text-4xl font-mono font-bold">$4.9M</span>
+                    <span className="mb-1 text-xs text-green-400 flex items-center gap-1">
+                      <TrendingUp className="h-3 w-3" />
+                      +190% vs Last 31 Days
+                    </span>
                   </div>
-                  <div className="mt-6 space-y-3">
-                    <h4 className="text-xs font-medium text-muted-foreground">Bandwidth Usage</h4>
+                  <div className="space-y-4">
                     {[
-                      { label: "Images", value: 45, color: "bg-blue-500" },
-                      { label: "Scripts", value: 30, color: "bg-accent" },
-                      { label: "API", value: 25, color: "bg-purple-500" },
+                      { label: "New Lead / Initial Outreach", value: 100, amount: "$2.4M" },
+                      { label: "Contacted", value: 80, amount: "$1.9M" },
+                      { label: "Demo Scheduled", value: 58, amount: "$1.2M" },
+                      { label: "Demo Completed", value: 40, amount: "$740K" },
+                      { label: "Account Created", value: 22, amount: "$310K" },
                     ].map((item, i) => (
                       <div key={i} className="space-y-1">
                         <div className="flex justify-between text-[10px]">
                           <span className="text-muted-foreground">{item.label}</span>
-                          <span className="font-mono">{item.value}%</span>
+                          <span className="font-mono text-foreground">{item.amount}</span>
                         </div>
-                        <div className="h-1.5 bg-[#1c1c1c] rounded-full overflow-hidden">
-                          <div
-                            className={`h-full ${item.color} rounded-full transition-all duration-1000`}
-                            style={{ width: `${item.value}%` }}
-                          />
+                        <div className="h-6 rounded bg-[#2a2a2a] overflow-hidden">
+                          <div className="h-full bg-accent" style={{ width: `${item.value}%` }} />
                         </div>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                <div className="p-5">
-                  <h3 className="text-sm font-medium text-muted-foreground mb-4">Live Analytics</h3>
-                  <div className="space-y-3">
-                    <div className="p-3 rounded-lg bg-[#1c1c1c] border border-border/40">
-                      <div className="flex items-center justify-between mb-2">
-                        <div className="flex items-center gap-2">
-                          <Users className="h-4 w-4 text-blue-400" />
-                          <span className="text-xs text-muted-foreground">Active Users</span>
-                        </div>
-                        <span className="text-xs text-green-400 flex items-center gap-1">
-                          <TrendingUp className="h-3 w-3" />
-                          +12%
-                        </span>
-                      </div>
-                      <span className="text-xl font-mono font-bold">2,847</span>
-                    </div>
-                    <div className="p-3 rounded-lg bg-[#1c1c1c] border border-border/40">
-                      <div className="flex items-center justify-between mb-2">
-                        <div className="flex items-center gap-2">
-                          <Eye className="h-4 w-4 text-purple-400" />
-                          <span className="text-xs text-muted-foreground">Page Views</span>
-                        </div>
-                        <span className="text-xs text-green-400 flex items-center gap-1">
-                          <TrendingUp className="h-3 w-3" />
-                          +8%
-                        </span>
-                      </div>
-                      <span className="text-xl font-mono font-bold">48.2K</span>
-                    </div>
-                    <div className="p-3 rounded-lg bg-[#1c1c1c] border border-border/40">
-                      <div className="flex items-center justify-between mb-2">
-                        <div className="flex items-center gap-2">
-                          <Zap className="h-4 w-4 text-accent" />
-                          <span className="text-xs text-muted-foreground">Requests/min</span>
-                        </div>
-                        <span className="text-xs text-green-400 flex items-center gap-1">
-                          <TrendingUp className="h-3 w-3" />
-                          +5%
-                        </span>
-                      </div>
-                      <span className="text-xl font-mono font-bold">1,204</span>
-                    </div>
-                    <div className="p-3 rounded-lg bg-[#1c1c1c] border border-border/40">
-                      <div className="flex items-center justify-between mb-2">
-                        <div className="flex items-center gap-2">
-                          <Globe className="h-4 w-4 text-cyan-400" />
-                          <span className="text-xs text-muted-foreground">Edge Regions</span>
-                        </div>
-                      </div>
-                      <span className="text-xl font-mono font-bold">42</span>
-                    </div>
-                    <div className="p-3 rounded-lg bg-[#1c1c1c] border border-border/40">
-                      <div className="flex items-center justify-between mb-2">
-                        <div className="flex items-center gap-2">
-                          <Database className="h-4 w-4 text-orange-400" />
-                          <span className="text-xs text-muted-foreground">Cache Hit Rate</span>
-                        </div>
-                      </div>
-                      <span className="text-xl font-mono font-bold">94.7%</span>
-                    </div>
+                <div className="col-span-2 rounded-xl border border-border/40 bg-[#1c1c1c] p-4">
+                  <div className="mb-4 flex items-center justify-between">
+                    <h3 className="text-sm font-medium">Stage Distribution</h3>
+                    <span className="rounded-md border border-border/60 px-2 py-0.5 text-[10px] text-muted-foreground">
+                      AEON Pipeline
+                    </span>
                   </div>
-                </div>
-
-                <div className="p-5">
-                  <h3 className="text-sm font-medium text-muted-foreground mb-4">Source Code</h3>
-                  <div className="rounded-lg bg-[#0d0d0d] border border-border/40 p-3 font-mono text-[11px] h-[340px] overflow-hidden">
-                    <div
-                      className="transition-transform duration-300 ease-out"
-                      style={{ transform: `translateY(-${codeLineIndex * 22}px)` }}
-                    >
-                      {[...codeLines, ...codeLines].map((line, i) => (
-                        <div
-                          key={i}
-                          className={`h-[22px] leading-[22px] ${
-                            line.startsWith("import")
-                              ? "text-purple-400"
-                              : line.startsWith("export")
-                                ? "text-blue-400"
-                                : line.startsWith("const")
-                                  ? "text-accent"
-                                  : line.includes("return")
-                                    ? "text-pink-400"
-                                    : line.includes("await")
-                                      ? "text-yellow-400"
-                                      : line.startsWith("//")
-                                        ? "text-muted-foreground/60 italic"
-                                        : "text-muted-foreground"
-                          }`}
-                        >
-                          {line || " "}
+                  <div className="mb-4 flex items-end gap-2">
+                    <span className="text-4xl font-mono font-bold">271</span>
+                    <span className="mb-1 text-xs text-green-400 flex items-center gap-1">
+                      <TrendingUp className="h-3 w-3" />
+                      +100% vs Last 31 Days
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <div className="relative h-28 w-28 flex-shrink-0">
+                      <svg viewBox="0 0 100 100" className="h-full w-full -rotate-90">
+                        {(() => {
+                          let offset = 0
+                          return stageDistribution.map((item, index) => {
+                            const pct = (item.value / stageTotal) * 100
+                            const dash = `${pct * 2.51327} ${251.327 - pct * 2.51327}`
+                            const circle = (
+                              <circle
+                                key={index}
+                                cx="50"
+                                cy="50"
+                                r="40"
+                                fill="none"
+                                stroke={item.color}
+                                strokeWidth="12"
+                                strokeDasharray={dash}
+                                strokeDashoffset={-offset * 2.51327}
+                              />
+                            )
+                            offset += pct
+                            return circle
+                          })
+                        })()}
+                      </svg>
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <span className="font-mono text-2xl font-bold">1</span>
+                      </div>
+                    </div>
+                    <div className="space-y-1 text-[10px]">
+                      {stageDistribution.map((item, i) => (
+                        <div key={i} className="flex items-center justify-between gap-3">
+                          <div className="flex items-center gap-1.5">
+                            <span className="h-2 w-2 rounded-full" style={{ backgroundColor: item.color }} />
+                            <span className="text-muted-foreground">{item.label}</span>
+                          </div>
+                          <span className="font-mono text-foreground">{item.value}%</span>
                         </div>
                       ))}
                     </div>

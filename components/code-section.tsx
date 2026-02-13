@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import { Blocks } from "lucide-react"
 
 const codeExamples = {
-  framework: `const call = aeonDial.initiate({
+  framework: `const call = AEONDial.initiate({
   to: "+1234567890",
   agent: "Sales_Team_A",
   script: "Inbound_Lead_V2"
@@ -88,7 +88,7 @@ export function CodeSection() {
             Workflow automation for every lead touchpoint
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            AeonDial gives reps and managers a single automation layer for calls, lead updates, and conversion-focused
+            AEONDial gives reps and managers a single automation layer for calls, lead updates, and conversion-focused
             follow-up.
           </p>
         </div>

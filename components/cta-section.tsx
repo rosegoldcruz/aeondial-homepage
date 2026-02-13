@@ -26,7 +26,7 @@ export function CTASection() {
             Ready to build faster?
           </h2>
           <p className="mt-4 text-lg text-muted-foreground">
-            Join thousands of teams driving more conversations and faster closes with AeonDial. Start your free trial
+            Join thousands of teams driving more conversations and faster closes with AEONDial. Start your free trial
             today.
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">

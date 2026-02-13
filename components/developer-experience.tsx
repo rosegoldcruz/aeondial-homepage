@@ -4,10 +4,10 @@ import { useState, useEffect, useRef } from "react"
 import { Check, AppWindow } from "lucide-react"
 
 const features = [
-  "Instant number provisioning",
-  "Live call queue monitoring",
-  "Built-in dialer and CRM sync",
-  "Team-ready collaboration tools",
+  "One-Click Global Provisioning: Claim local or toll-free numbers in 100+ countries and start dialing in under 60 seconds.",
+  "Predictive AI Sequencing: Our engine anticipates agent availability to eliminate dead air and maximize live connections.",
+  "Live Whisper HUD: An intelligent AI overlay that prompts your agents with real-time rebuttals and closing cues during live calls.",
+  "Full-Stack CRM Sync: Zero-latency data logging that automatically updates your lead status, recordings, and transcripts across your entire stack.",
 ]
 
 export function DeveloperExperience() {
@@ -18,12 +18,11 @@ export function DeveloperExperience() {
   const sectionRef = useRef<HTMLElement>(null)
 
   const fullText = `$ aeondial launch
-
-✓ Dialer connected in 1.2s
-✓ CRM sync enabled
-✓ Queue: Sales_Team_A online
-
-Ready for outbound ▸`
+✓ Provisioning +1 (602) 555-0199... Done.
+✓ Predictive Dialer: Online [High Intensity]
+✓ AI Whisper Coaching: Active
+✓ CRM Sync: HubSpot & Salesforce connected
+Ready for outbound. Let's close.`
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -100,7 +99,7 @@ Ready for outbound ▸`
               Designed around how revenue teams actually work
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              AeonDial adapts to your workflow — not the other way around. Build once. Run anywhere. Collaborate
+              AEONDial adapts to your workflow — not the other way around. Build once. Run anywhere. Collaborate
               instantly.
             </p>
             <ul className="mt-8 space-y-4">

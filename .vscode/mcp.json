@@ -1,0 +1,18 @@
+{
+  "servers": {
+    "contextstream": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "--prefer-online",
+        "-y",
+        "@contextstream/mcp-server@latest"
+      ],
+      "env": {
+        "CONTEXTSTREAM_API_URL": "https://api.contextstream.io",
+        "CONTEXTSTREAM_API_KEY": "cbiq_bSh7Hb79Vb3j2-JIVml6979MdHBs2gE8Vfd7X2M43Eo",
+        "CONTEXTSTREAM_CONTEXT_PACK": "false"
+      }
+    }
+  }
+}
